@@ -6,9 +6,6 @@ import { TopSection } from './containers/homePage/topSection';
 function App() {
   return (
     <div className="App">
-      <TopSection>
-        <Navbar />
-      </TopSection>
       <HomePage />
     </div>
   );

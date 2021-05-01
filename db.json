@@ -1,0 +1,92 @@
+{
+    "services": [
+        {
+            "id": 1,
+            "title": "i will landscape your garden",
+            "rating": 4,
+            "rate": "43",
+            "specialist": {
+                "id": 1,
+                "fullName": "EdwinMuraya"
+            },
+            "thumbnailUrl": "http://localhost:9000/garden.jpg"
+        },
+        {
+            "id": 2,
+            "title": "I Paint Cars",
+            "rate": "50",
+            "rating": 4,
+            "specialist": {
+                "id": 1,
+                "fullName": "EdwinMuraya"
+            },
+            "thumbnailUrl": "http://localhost:9000/car.jpg"
+        },
+        {
+            "id": 3,
+            "rate": "20",
+            "title": "I Paint Cars",
+            "rating": 5,
+            "specialist": {
+                "id": 1,
+                "fullName": "EdwinMuraya"
+            },
+            "thumbnailUrl": "http://localhost:9000/car.jpg"
+        },
+        {
+            "id": 3,
+            "rate": "20",
+            "title": "I Paint Cars",
+            "rating": 5,
+            "specialist": {
+                "id": 1,
+                "fullName": "EdwinMuraya"
+            },
+            "thumbnailUrl": "http://localhost:9000/car.jpg"
+        },
+        {
+            "id": 4,
+            "rate": "20",
+            "title": "Make your Compound",
+            "rating": 5,
+            "specialist": {
+                "id": 1,
+                "fullName": "EdwinMuraya"
+            },
+            "thumbnailUrl": "http://localhost:9000/grass.jpg"
+        },
+        {
+            "id": 5,
+            "rate": "20",
+            "title": "I Paint Cars",
+            "rating": 5,
+            "specialist": {
+                "id": 1,
+                "fullName": "EdwinMuraya"
+            },
+            "thumbnailUrl": "http://localhost:9000/car.jpg"
+        },
+        {
+            "id": 6,
+            "rate": "20",
+            "title": "I Paint Cars",
+            "rating": 5,
+            "specialist": {
+                "id": 1,
+                "fullName": "EdwinMuraya"
+            },
+            "thumbnailUrl": "http://localhost:9000/car.jpg"
+        },
+        {
+            "id": 7,
+            "rate": "20",
+            "title": "I Paint Cars",
+            "rating": 5,
+            "specialist": {
+                "id": 1,
+                "fullName": "EdwinMuraya"
+            },
+            "thumbnailUrl": "http://localhost:9000/car.jpg"
+        }
+    ]
+}
