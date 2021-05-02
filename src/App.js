@@ -1,12 +1,17 @@
 import './App.css';
-import { Navbar } from './components/navbar';
 import { HomePage } from './containers/homePage';
-import { TopSection } from './containers/homePage/topSection';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { CustomerAccessPage } from './containers/customerAccessPage';
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <Router>
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/customer/access/:action" exact component={CustomerAccessPage} />
+        </Switch>
+      </Router>
     </div>
   );
 }

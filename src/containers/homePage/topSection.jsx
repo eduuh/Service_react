@@ -1,7 +1,9 @@
+import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components'
 import { BrandLogo } from '../../components/brandLogo';
 import { Button } from '../../components/Button';
 import { Marginer } from '../../components/marginer/marginer';
+import { deviceSize } from '../../components/responsive';
 import TopSectionBackgroundImage from "../../images/landing-page.jpg";
 import TheBestSpecialistImg from "../../images/Work only with the best.png"
 
@@ -9,9 +11,15 @@ import TheBestSpecialistImg from "../../images/Work only with the best.png"
 const TopSectionContainer = styled.div`
   width: 100%;
   height: 900px;
-  background: url(${TopSectionBackgroundImage});
+  background: url(${TopSectionBackgroundImage}) no-repeat;
   background-position: 0px -150px;
   background-size: cover;
+
+  @media screen  and (max-width: ${deviceSize.mobile}px){
+     height: 700px;
+     background-position: 0px 0px;
+  }
+
 `
 
 const BackgroundFilter = styled.div`
@@ -56,21 +64,26 @@ const SloganText = styled.div`
 
 export function TopSection(props) {
   const { children } = props
+
+  const ismobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+
   return <TopSectionContainer>
     <BackgroundFilter>
       {children}
       <TopSectionInnerContainer>
         <LogoContainer>
-          <BrandLogo textSize={55} logoSize={55} />
+          <BrandLogo textSize={ismobile ? 40 : 55} logoSize={ismobile ? 40 : 55} />
           <Marginer direction="vertical" margin={8} />
           <SloganText>Find the right Specialist</SloganText>
           <SloganText>For the right Job</SloganText>
           <Marginer direction="vertical" margin={15} />
           <Button>Join now</Button>
         </LogoContainer>
-        <StandoutImg>
-          <img src={TheBestSpecialistImg} alt="The best specialist" />
-        </StandoutImg>
+        {!ismobile && (
+          <StandoutImg>
+            <img src={TheBestSpecialistImg} alt="The best specialist" />
+          </StandoutImg>)
+        }
       </TopSectionInnerContainer>
     </BackgroundFilter>
   </TopSectionContainer >

@@ -47,42 +47,42 @@ const BottomContainer = styled.div`
 
 
 export function Services(props) {
-    const [services, setServices] = useState([])
-    const isServiceEmpty = !services || (services && services.length === 0);
-    const [isLoading, setLoading] = useState(false)
+  const [services, setServices] = useState([])
+  const isServiceEmpty = !services || (services && services.length === 0);
+  const [isLoading, setLoading] = useState(false)
 
 
-    const fetchServices = async () => {
-        setLoading(true)
-        try {
-            const response = await axios.get("http://localhost:9000/services");
-            setServices(response.data)
-        } catch (err) {
-            console.log(err)
-        }
-
-        setLoading(false)
+  const fetchServices = async () => {
+    setLoading(true)
+    try {
+      const response = await axios.get("http://localhost:9000/services");
+      setServices(response.data)
+    } catch (err) {
+      console.log(err)
     }
 
-    useEffect(() => {
-        fetchServices();
-    }, [])
+    setLoading(false)
+  }
 
-    return (
-        <servicesContainer>
-            <Title>The most Used Services $ more</Title>
-            <ServicesWrapper>
-                {isLoading && <WarningText>Loading ....</WarningText>}
-                {!isServiceEmpty && !isLoading ? services.map((service, id) => {
-                    return <ServiceCard key={id} {...service} />
-                }) : null}
-            </ServicesWrapper>
+  useEffect(() => {
+    fetchServices();
+  }, [])
 
-            <BottomContainer>
-                {!isServiceEmpty && !isLoading && (
-                    <ViewMoreButton>View More</ViewMoreButton>
-                )}
-            </BottomContainer>
-        </servicesContainer>
-    )
+  return (
+    <ServiceContainer>
+      <Title>The most Used Services $ more</Title>
+      <ServicesWrapper>
+        {isLoading && <WarningText>Loading ....</WarningText>}
+        {!isServiceEmpty && !isLoading ? services.map((service, id) => {
+          return <ServiceCard key={id} {...service} />
+        }) : null}
+      </ServicesWrapper>
+
+      <BottomContainer>
+        {!isServiceEmpty && !isLoading && (
+          <ViewMoreButton>View More</ViewMoreButton>
+        )}
+      </BottomContainer>
+    </ServiceContainer>
+  )
 }

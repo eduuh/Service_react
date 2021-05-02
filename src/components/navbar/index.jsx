@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import { BrandLogo } from '../brandLogo'
 import { Button } from '../Button'
 import { Marginer } from '../marginer/marginer'
+import { Link } from 'react-router-dom'
+import { useMediaQuery } from 'react-responsive'
+import { deviceSize } from '../responsive'
 
 const NavbarContainer = styled.div`
   width: 100%;
@@ -11,6 +14,9 @@ const NavbarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 1.5em;
+
+  background-color: ${({ useTransparent }) => useTransparent ? "transparent" : '#264653'};
+
 `
 
 const AccessibilityContainer = styled.div`
@@ -19,7 +25,7 @@ const AccessibilityContainer = styled.div`
    align-items: center;
 `
 
-const AchorLink = styled.a`
+const AchorLink = styled(Link)`
 font-size: 13px;
 color: #fff;
 cursor: pointer;
@@ -39,17 +45,27 @@ const Separator = styled.div`
 `
 
 export function Navbar(props) {
+
+    const ismobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+
+    const { useTransparent } = props
     return (
-        <NavbarContainer>
+        <NavbarContainer useTransparent={useTransparent}>
             <BrandLogo />
             <AccessibilityContainer>
-                <AchorLink>Specialist Portal</AchorLink>
-                <Marginer direction="horizontal" margin={18} />
-                <Separator />
+                {!ismobile &&
+                    <AchorLink>Specialist Portal</AchorLink>
+                }
+                {!ismobile &&
+                    <Marginer direction="horizontal" margin={18} />
+                    &&
+                    <Separator />}
                 <Marginer direction="horizontal" margin={10} />
-                <Button size={11}>Register</Button>
+                <Link to="/customer/access/signup">
+                    <Button size={11}>Register</Button>
+                </Link>
                 <Marginer direction="horizontal" margin={6} />
-                <AchorLink>Specialist Portal</AchorLink>
+                <AchorLink to="/customer/access/signin">Login</AchorLink>
             </AccessibilityContainer>
         </NavbarContainer>
     )

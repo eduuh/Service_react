@@ -2,6 +2,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { Marginer } from "../marginer/marginer";
+import { deviceSize } from "../responsive";
 
 const CardContainer = styled.div`
 display: flex;
@@ -29,11 +30,13 @@ const ServiceThumbnail = styled.div`
  }
 `
 const Title = styled.h2`
- font-size: 18px;
- margin: 0;
- font-weight: 500;
+ font-weight: 900;
  color: #000;
  text-align: start;
+
+ @media screen  and (max-width: ${deviceSize.mobile}px){
+     font-size: 20px;
+  }
 `
 
 const SpecialistName = styled.h4`
@@ -49,7 +52,11 @@ const ContentContainer = styled.div`
  flex-direction: column;
  align-items: flex-start;
  flex: 1;
- padding: 15px 14px;
+ padding: 1em;
+ 
+ @media screen  and (max-width: ${deviceSize.mobile}px){
+     padding: 0px;
+  }
 `
 
 const RatingContainer = styled.div`
@@ -84,27 +91,27 @@ const BottomContainer = styled.div`
  padding: 0 10px;
 `
 export function ServiceCard(props) {
-    const { thumbnailUrl, specialist, id, title, rating, rate } = props
-    return <CardContainer>
-        <TopContainer>
-            <ServiceThumbnail>
-                <img src={thumbnailUrl} alt={title} />
-            </ServiceThumbnail>
-        </TopContainer>
-        <ContentContainer>
-            <Title>{title}</Title>
-            <Marginer direction="vertical" margin={10} />
-            <SpecialistName>{specialist.fullName}</SpecialistName>
-        </ContentContainer>
-        <BottomContainer>
-            <RatingContainer>
-                <FontAwesomeIcon icon={faStar} size="sm" />
-                {rating}
-            </RatingContainer>
-            <PriceContainer>
-                <StartingAtText>STARTING AT</StartingAtText>
-                <PriceText>${rate}/hr</PriceText>
-            </PriceContainer>
-        </BottomContainer>
-    </CardContainer>
+  const { thumbnailUrl, specialist, title, rating, rate } = props
+  return <CardContainer>
+    <TopContainer>
+      <ServiceThumbnail>
+        <img src={thumbnailUrl} alt={title} />
+      </ServiceThumbnail>
+    </TopContainer>
+    <ContentContainer>
+      <Title>{title}</Title>
+      <Marginer direction="vertical" margin={10} />
+      <SpecialistName>{specialist.fullName}</SpecialistName>
+    </ContentContainer>
+    <BottomContainer>
+      <RatingContainer>
+        <FontAwesomeIcon icon={faStar} size="sm" />
+        {rating}
+      </RatingContainer>
+      <PriceContainer>
+        <StartingAtText>STARTING AT</StartingAtText>
+        <PriceText>${rate}/hr</PriceText>
+      </PriceContainer>
+    </BottomContainer>
+  </CardContainer>
 }
