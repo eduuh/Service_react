@@ -6,6 +6,8 @@ import { Navbar } from '../../components/navbar'
 import { deviceSize } from '../../components/responsive'
 import { ServiceCard } from '../../components/ServiceCard'
 import { Services } from './services'
+import { SpecialistAds } from '../../components/specialistAds'
+import { Marginer } from '../../components/marginer/marginer'
 
 
 const ContentContainer = styled.div`
@@ -27,5 +29,7 @@ export function HomePage(props) {
                 <Services />
             </ContentContainer>
         </InnerPageContainer>
+        <Marginer direction="vertical" margin="5em" />
+        <SpecialistAds />
     </PageContainer >
 }

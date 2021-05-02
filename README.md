@@ -10,5 +10,5 @@ To get Graphic Design form you site use the [many pixels](https://www.manypixels
 ### Using Json-server to Fullfill
 
 ```bash
-json-server --watch db.json --static ./src/images
+json-server --watch db.json --static ./src/images/thubnails -p 9000
 ```
