@@ -26,11 +26,11 @@ const LogoTitle = styled.h2`
 
 
 export function BrandLogo(props) {
-    const { logoSize, textSize, color } = props
-    return <BrandLogoContainer>
-        <LogoImage size={logoSize}>
-            <img src={Logo} alt="Servicing Logo" />
-        </LogoImage>
-        <LogoTitle size={textSize}>Servycing</LogoTitle>
-    </BrandLogoContainer>
+  const { logoSize, textSize, color, hideLogo } = props
+  return <BrandLogoContainer>
+    {!hideLogo && <LogoImage size={logoSize}>
+      <img src={Logo} alt="Servicing Logo" />
+    </LogoImage>}
+    <LogoTitle size={textSize} color={color}>Servycing</LogoTitle>
+  </BrandLogoContainer>
 }

@@ -4,10 +4,10 @@ import { TopSection } from './topSection'
 import styled from 'styled-components'
 import { Navbar } from '../../components/navbar'
 import { deviceSize } from '../../components/responsive'
-import { ServiceCard } from '../../components/ServiceCard'
 import { Services } from './services'
 import { SpecialistAds } from '../../components/specialistAds'
 import { Marginer } from '../../components/marginer/marginer'
+import { Footer } from '../../components/footer/'
 
 
 const ContentContainer = styled.div`
@@ -31,5 +31,7 @@ export function HomePage(props) {
         </InnerPageContainer>
         <Marginer direction="vertical" margin="5em" />
         <SpecialistAds />
+        <Marginer direction="vertical" margin="5em" />
+        <Footer />
     </PageContainer >
 }
